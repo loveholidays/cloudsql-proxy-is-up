@@ -1,6 +1,6 @@
 # cloudsql-proxy-is-up
 
-Built on top of (https://github.com/monzo/envoy-preflight)[https://github.com/monzo/envoy-preflight].
+Built on top of (envoy-preflight)[https://github.com/monzo/envoy-preflight].
 
 `cloudsql-proxy-is-up` is a simple wrapper application which makes it easier to run applications which depend on Cloud SQL Proxy as a sidecar container for Cloud SQL access. It ensures that your application doesn't start until Cloud SQL Proxy is ready, and that Cloud SQL Proxy shuts down when the application exits. It is best used as a prefix to your existing Docker entrypoint. It executes any argument passed to it, doing a simple path lookup:
 ```
