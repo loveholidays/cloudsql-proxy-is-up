@@ -1,0 +1,9 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'europe-west2-docker.pkg.dev/$PROJECT_ID/platform-infrastructure/cloudsql-proxy-is-up:$SHORT_SHA', '.']
+
+images:
+  - 'europe-west2-docker.pkg.dev/$PROJECT_ID/platform-infrastructure/cloudsql-proxy-is-up:$SHORT_SHA'
+tags: ['cloudsql-proxy-is-up']
+
+logsBucket: lh-cloud-build-logs
