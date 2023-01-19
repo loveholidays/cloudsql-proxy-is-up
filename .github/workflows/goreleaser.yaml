@@ -12,6 +12,7 @@ permissions:
   pull-requests: write
   issues: write
   checks: read
+  packages: write
 
 jobs:
   goreleaser:
