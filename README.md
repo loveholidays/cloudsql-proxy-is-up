@@ -6,9 +6,18 @@ Built on top of [envoy-preflight](https://github.com/monzo/envoy-preflight).
 ```
 cloudsql-proxy-is-up echo "hi"
 cloudsql-proxy-is-up /bin/ls -a
+CMD [ \
+  "/cloudsql-proxy-is-up", \
+  "/usr/bin/java", \
+  "-server", \
+  "-Xms256m", \
+  "-Xmx256m", \
+  "-jar", \
+  "/srv/some/artifact/application.jar" \
+]
 ```
 
-The `cloudsql-proxy-is-up` wrapper won't do anything special unless you provide at least the `CLOUDSQL_PROXY_API` environment variable.  This makes, _e.g._, local development of your app easy.
+The `cloudsql-proxy-is-up` wrapper won't do anything unless you provide the `CLOUDSQL_PROXY_API` environment variable.  This makes local development of your app easy.
 
 If you do provide the `CLOUDSQL_PROXY_API` environment variable, `cloudsql-proxy-is-up`
 will poll the proxy indefinitely with backoff, waiting for Cloud SQL Proxy to report itself as live. Only then will it execute the command provided as an argument, so that your app can immediately start accessing the Cloud SQL.
